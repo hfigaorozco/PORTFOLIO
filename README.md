@@ -1,2 +1,2 @@
 # PORTFOLIO
-Hector Figueroa's professionar portfolio (Only available in English)
+Hector Figueroa's professional portfolio (Only available in English)
