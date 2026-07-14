@@ -28,7 +28,7 @@ section h1, p {
     color: white;
 }
 
-/* Barra de navegación*/
+/* Navbar */
 
 nav {
     background: black;
@@ -111,6 +111,112 @@ nav.hide {
     cursor: pointer;
 }
 
+/* Home */
+.home-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    height: 70vh;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-photo img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.home-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 28px;
+}
+
+.highlight {
+    color: var(--navTextsHover);
+}
+
+.home-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.home-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.home-buttons a {
+    border: 2px solid var(--navTexts);
+    border-radius: 8px; 
+    padding: 5px 10px;
+    background-color: black;
+    color: var(--navTexts);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.home-buttons a:hover {
+    border: 2px solid var(--navTextsHover);
+    color: var(--navTextsHover);
+}
+
+.home-socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.home-socials img {
+    width: 30px;
+    height: 30px;
+}
+
+/* About Me */
+#about-me h2 {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-video {
+    flex: 1;
+}
+
+.about-video video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+}
+
+.about-text {
+    flex: 1;
+    font-size: 20px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
 
     .menu-btn {
