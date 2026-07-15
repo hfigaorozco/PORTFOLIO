@@ -216,6 +216,74 @@ nav.hide {
     font-size: 20px;
 }
 
+/* Projects */
+#projects h2 {
+    color: var(--navTexts);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 30px;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr)); 
+    gap: 2rem;
+    margin-top: 50px;
+    padding: 0 2rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-card {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px var(--navTextsHover);
+    border: solid 3px var(--navTextsHover);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 12px var(--navTextsHover);
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+.project-card-mobile {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 9 / 19.3;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px var(--navTextsHover);
+    border: solid 2px var(--navTextsHover);
+    margin: 0 auto;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card-mobile:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 12px var(--navTextsHover);
+}
+
+.project-card-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
 
