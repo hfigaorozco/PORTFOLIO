@@ -166,11 +166,13 @@ nav.hide {
     color: var(--navTexts);
     cursor: pointer;
     text-decoration: none;
+    transition: ease 0.25s all;
 }
 
 .home-buttons a:hover {
     border: 2px solid var(--navTextsHover);
     color: var(--navTextsHover);
+    transform: translateY(-3px);
 }
 
 .home-socials {
@@ -181,6 +183,11 @@ nav.hide {
 .home-socials img {
     width: 30px;
     height: 30px;
+    transition: ease 0.25s all;
+}
+
+.home-socials img:hover {
+    transform: translateY(-3px);
 }
 
 /* About Me */
@@ -283,8 +290,7 @@ nav.hide {
     display: block;
 }
 
-
-/* Responsive */
+/* Responsividad */
 @media (max-width: 768px) {
 
     .menu-btn {
@@ -326,4 +332,3 @@ nav.hide {
     .nav-links li:nth-child(5) {transition-delay: 0.15s;}
 
 }
-
