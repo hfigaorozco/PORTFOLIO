@@ -2,6 +2,7 @@ const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 const links = navLinks.querySelectorAll("a");
 const nav = document.querySelector("nav");
+const techToggles = document.querySelectorAll(".tech-toggle");
 
 let lastScroll = 0;
 
@@ -42,5 +43,13 @@ links.forEach(link => {
         navLinks.classList.remove("active");
         menuBtn.innerHTML = "≡";
         menuBtn.setAttribute("aria-expanded", "false");
+    });
+});
+
+techToggles.forEach(toggle => {
+    toggle.addEventListener("click", () => {
+        const tags = toggle.nextElementSibling;
+        toggle.classList.toggle("active");
+        tags.classList.toggle("open");
     });
 });
