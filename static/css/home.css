@@ -12,6 +12,8 @@
 
 body {
     background-color: black;
+    background-image: linear-gradient(rgba(183,0,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(183,0,255,0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
 
 html {
@@ -21,7 +23,7 @@ html {
 section {
     min-height: 100vh;
     padding: 50px 2rem;
-    border: 1px solid red; /* marcar la division */
+    border: 1px solid var(--navTextsHover); /* marcar la division */
 }
 
 section h1, p {
@@ -56,6 +58,11 @@ nav.hide {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.nav-container span {
+    color: var(--navTexts);
+    opacity: 0.45;
 }
 
 .logo {
@@ -111,6 +118,24 @@ nav.hide {
 }
 
 /* Home */
+#home {
+    position: relative;
+    overflow: hidden;
+}
+
+#home::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--navTextsHover), transparent 70%);
+    filter: blur(80px);
+    animation: float 8s ease-in-out infinite;
+    z-index: 0;
+}
+
 .home-container {
     display: flex;
     flex-direction: row;
@@ -120,6 +145,8 @@ nav.hide {
     height: 70vh;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .home-photo img {
@@ -230,63 +257,150 @@ nav.hide {
     font-size: 30px;
 }
 
+#projects h4 {
+    color: var(--navTexts);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 20px;
+    opacity: 0.6;
+}
+
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
     gap: 2rem;
     margin-top: 50px;
     padding: 0 2rem;
     max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline: auto;
+}
+
+.project-card,
+.project-card-mobile {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    border-radius: 10px;
+    border: solid 3px var(--navTextsHover);
+    box-shadow: 0px 2px 4px var(--navTextsHover);
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
 }
 
 .project-card {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 2px 4px var(--navTextsHover);
-    border: solid 3px var(--navTextsHover);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 8px 12px var(--navTextsHover);
-}
-
-.project-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-    display: block;
+    aspect-ratio: 16/9;
 }
 
 .project-card-mobile {
     width: 100%;
     max-width: 280px;
-    aspect-ratio: 9 / 19.3;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 2px 4px var(--navTextsHover);
-    border: solid 2px var(--navTextsHover);
+    aspect-ratio: 9/19.3;
     margin: 0 auto;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.project-card-mobile:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 8px 12px var(--navTextsHover);
-}
-
+.project-card img,
 .project-card-mobile img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top;
     display: block;
+    transition:
+        transform .45s ease,
+        filter .45s ease;
+}
+
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 26px;
+    background: linear-gradient(
+        to top,
+        rgba(5,5,10,.95),
+        rgba(10,10,20,.72),
+        rgba(0,0,0,.08)
+    );
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.project-overlay h3 {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: .35s ease;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: .35s ease .08s;
+}
+
+.project-tags span {
+    background: #8B5CF6;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 999px;
+    font-size: .82rem;
+    font-weight: 600;
+    box-shadow: 0 0 14px rgba(139,92,246,.35);
+}
+
+.project-overlay p {
+    margin-top: 18px;
+    color: rgba(255,255,255,.92);
+    line-height: 1.6;
+    font-size: .95rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: .35s ease .15s;
+}
+
+.project-card:hover,
+.project-card-mobile:hover {
+    transform: translateY(-10px);
+    border-color: #A855F7;
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35),
+        0 0 22px rgba(168,85,247,.28);
+}
+
+.project-card:hover img,
+.project-card-mobile:hover img {
+    transform: scale(1.06);
+    filter:
+        brightness(.35)
+        blur(1px);
+}
+
+.project-card:hover .project-overlay,
+.project-card-mobile:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-card:hover .project-overlay h3,
+.project-card-mobile:hover .project-overlay h3,
+.project-card:hover .project-tags,
+.project-card-mobile:hover .project-tags,
+.project-card:hover .project-overlay p,
+.project-card-mobile:hover .project-overlay p {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 /* Skills */
@@ -340,6 +454,7 @@ nav.hide {
     font-size: 14px;
     transition: all 0.25s ease;
     font-size: 20px;
+    background-color: black;
 }
 
 .softskills-list li:hover {
@@ -366,6 +481,7 @@ nav.hide {
     cursor: pointer;
     text-align: center;
     transition: all 0.25s ease;
+    background-color: black;
 }
 
 .tech-toggle:hover {
@@ -408,6 +524,7 @@ nav.hide {
     font-size: 14px;
     color: var(--navTexts);
     transition: all 0.25s ease;
+    background-color: black;
 }
 
 .tech-tags span img {
@@ -457,6 +574,7 @@ nav.hide {
     text-decoration: none;
     color: white;
     transition: .3s;
+    background-color: black;
 }
 
 .left{
@@ -497,7 +615,6 @@ nav.hide {
 .card-contact:hover .fa-arrow-up-right-from-square{
     transform:translate(2px,-2px);
 }
-
 
 /* Responsividad */
 @media (max-width: 768px) {
@@ -546,4 +663,10 @@ nav.hide {
     .contact-container{
         grid-template-columns: 1fr;
     }
+}
+
+/* Keyframes */
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -30px); }
 }
