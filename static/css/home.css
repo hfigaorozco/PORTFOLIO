@@ -23,7 +23,6 @@ html {
 section {
     min-height: 100vh;
     padding: 50px 2rem;
-    border: 1px solid var(--navTextsHover); /* marcar la division */
 }
 
 section h1, p {
@@ -103,7 +102,6 @@ nav.hide {
 }
 
 .nav-links a:hover {
-    opacity: 0.6;
     transform: translateY(-2px);
     color: var(--navTextsHover);
 }
@@ -127,7 +125,7 @@ nav.hide {
     content: "";
     position: absolute;
     top: 15%;
-    left: 10%;
+    left: 7%;
     width: 400px;
     height: 400px;
     background: radial-gradient(circle, var(--navTextsHover), transparent 70%);
@@ -209,11 +207,19 @@ nav.hide {
 .home-socials img {
     width: 34px;
     height: 34px;
-    transition: ease 0.25s all;
+    transition: ease 0.45s all;
 }
 
 .home-socials img:hover {
     transform: translateY(-3px);
+}
+
+.home-socials .home-icon-github:hover {
+    content: url("../images/icons/github_hover.png");
+}
+
+.home-socials .home-icon-linkedin:hover {
+    content: url("../images/icons/linkedin_hover.png");
 }
 
 /* About Me */
@@ -242,6 +248,8 @@ nav.hide {
     width: 100%;
     max-width: 500px;
     border-radius: 12px;
+    border: solid 3px var(--navTextsHover);
+    box-shadow: 0px 2px 4px var(--navTextsHover);
 }
 
 .about-text {
@@ -352,7 +360,7 @@ nav.hide {
 }
 
 .project-tags span {
-    background: #8B5CF6;
+    background: var(--navTextsHover);
     color: white;
     padding: 7px 15px;
     border-radius: 999px;
@@ -475,7 +483,6 @@ nav.hide {
     border: 2px solid var(--navTexts);
     border-radius: 20px;
     padding: 8px 16px;
-    background-color: black;
     color: var(--navTexts);
     font-size: 20px;
     cursor: pointer;
@@ -604,8 +611,8 @@ nav.hide {
     content:url("../images/icons/github_hover.png");
 }
 
-.card-contact:hover .contact-icon-x{
-    content:url("../images/icons/x_hover.png");
+.card-contact:hover .contact-icon-wpp{
+    content:url("../images/icons/whatsapp_hover.png");
 }
 
 .card-contact:hover .contact-icon-gmail{
@@ -618,6 +625,10 @@ nav.hide {
 
 /* Responsividad */
 @media (max-width: 768px) {
+
+    .logo {
+        font-size: 2rem;
+    }
 
     .menu-btn {
         display: block;
@@ -657,12 +668,89 @@ nav.hide {
     .nav-links li:nth-child(4) {transition-delay: 0.14s;}
     .nav-links li:nth-child(5) {transition-delay: 0.15s;}
 
-}
+    .home-container {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 4rem 0 2rem;
+        gap: 2rem;
+    }
 
-@media (max-width:768px){
-    .contact-container{
+    .home-photo img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .home-text {
+        font-size: 22px;
+        align-items: center;
+    }
+
+    .home-actions {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .home-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #about-me h2 {
+        font-size: 30px;
+        margin-bottom: 2rem;
+    }
+
+    .about-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .about-text {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    #projects h2 {
+        font-size: 22px;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    #skills h2 {
+        font-size: 22px;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .skills-softskills,
+    .skills-techskills {
+        width: 100%;
+    }
+
+    .softskills-list li {
+        width: 80%;
+    }
+
+    .tech-toggle {
+        width: 80%;
+    }
+
+    #contact h2 {
+        font-size: 22px;
+    }
+
+    .contact-container {
         grid-template-columns: 1fr;
     }
+
 }
 
 /* Keyframes */
