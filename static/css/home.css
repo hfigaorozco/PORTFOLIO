@@ -129,7 +129,7 @@ nav.hide {
     content: "";
     position: absolute;
     top: 22%;
-    left: 7%;
+    left: 10%;
     width: 400px;
     height: 400px;
     background: radial-gradient(circle, var(--navTextsHover), transparent 70%);
