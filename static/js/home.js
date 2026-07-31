@@ -59,16 +59,27 @@ conferencePhotos.forEach(img => {
     let interval = null;
     const card = img.closest('.conference-card');
 
-    card.addEventListener('mouseenter', () => {
+    const startCycle = () => {
         interval = setInterval(() => {
             index = (index + 1) % images.length;
             img.src = images[index];
         }, 1200);
-    });
+    };
 
-    card.addEventListener('mouseleave', () => {
+    const stopCycle = () => {
         clearInterval(interval);
         index = 0;
         img.src = images[0];
+    };
+
+    card.addEventListener('mouseenter', startCycle);
+    card.addEventListener('mouseleave', stopCycle);
+
+    card.addEventListener('touchstart', () => {
+        if (interval) {
+            stopCycle();
+        } else {
+            startCycle();
+        }
     });
 });

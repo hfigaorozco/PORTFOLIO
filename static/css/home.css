@@ -831,6 +831,10 @@ nav.hide {
         justify-content: center;
     }
 
+    .home-socials {
+        justify-content: center;
+    }
+
     #about-me h2 {
         font-size: 30px;
         margin-bottom: 2rem;
@@ -876,6 +880,19 @@ nav.hide {
 
     .tech-toggle {
         width: 80%;
+    }
+
+    .conferences-container {
+        grid-template-columns: 1fr;
+    }
+
+    .conferences-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-badge {
+        width: 100%;
+        max-width: 300px;
     }
 
     #contact h2 {
