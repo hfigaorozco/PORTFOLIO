@@ -3,20 +3,19 @@ const navLinks = document.getElementById("navLinks");
 const links = navLinks.querySelectorAll("a");
 const nav = document.querySelector("nav");
 const techToggles = document.querySelectorAll(".tech-toggle");
+const conferencePhotos = document.querySelectorAll('.conference-photo');
 
 let lastScroll = 0;
 
 window.addEventListener("scroll", () => {
     const currentScroll = window.scrollY;
 
-    // Mostrar borde al bajar
     if (currentScroll > lastScroll && currentScroll > 100) {
         nav.classList.add("hide");
     } else {
         nav.classList.remove("hide");
     }
 
-    // Ocultar al bajar y mostrar al subir
     if (currentScroll > 20) {
         nav.classList.add("scrolled");
     } else {
@@ -51,5 +50,25 @@ techToggles.forEach(toggle => {
         const tags = toggle.nextElementSibling;
         toggle.classList.toggle("active");
         tags.classList.toggle("open");
+    });
+});
+
+conferencePhotos.forEach(img => {
+    const images = JSON.parse(img.dataset.images);
+    let index = 0;
+    let interval = null;
+    const card = img.closest('.conference-card');
+
+    card.addEventListener('mouseenter', () => {
+        interval = setInterval(() => {
+            index = (index + 1) % images.length;
+            img.src = images[index];
+        }, 1200);
+    });
+
+    card.addEventListener('mouseleave', () => {
+        clearInterval(interval);
+        index = 0;
+        img.src = images[0];
     });
 });

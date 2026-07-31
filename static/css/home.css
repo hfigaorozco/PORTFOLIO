@@ -211,7 +211,7 @@ nav.hide {
 }
 
 .home-socials img:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
 .home-socials .home-icon-github:hover {
@@ -544,6 +544,137 @@ nav.hide {
     border: 2px solid var(--navTextsHover);
     color: var(--navTextsHover);
     transform: translateY(-2px);
+}
+
+/* Certifications */
+#certifications h2 {
+    color: var(--navTexts);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 30px;
+}
+
+#certifications h4 {
+    color: var(--navTexts);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 20px;
+    opacity: 0.6;
+}
+
+.certifications-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cert-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 2px solid var(--navTexts);
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-decoration: none;
+    color: var(--navTexts);
+    background-color: black;
+    transition: all 0.25s ease;
+    width: 280px;
+}
+
+.cert-badge:hover {
+    border-color: var(--navTextsHover);
+    color: var(--navTextsHover);
+    transform: translateY(-4px);
+}
+
+.cert-badge img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.cert-info h3 {
+    font-size: 18px;
+}
+
+.cert-info p {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.cert-info p:hover {
+    color: var(--navTextsHover);
+}
+
+.conferences-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.conference-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: solid 3px var(--navTextsHover);
+    box-shadow: 0px 2px 4px var(--navTextsHover);
+    aspect-ratio: 16/9;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.conference-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--navTextsHover);
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35),
+        0 0 22px rgba(168,85,247,.28);
+}
+
+.conference-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.conference-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 26px;
+    background: linear-gradient(
+        to top,
+        rgba(5,5,10,.95),
+        rgba(10,10,20,.72),
+        rgba(0,0,0,.08)
+    );
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.conference-card:hover .conference-overlay {
+    opacity: 1;
+}
+
+.conference-overlay h3 {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.conference-overlay p {
+    color: rgba(255,255,255,.92);
+    line-height: 1.5;
+    font-size: .9rem;
 }
 
 /* Contact */
