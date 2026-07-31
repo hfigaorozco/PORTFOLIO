@@ -125,17 +125,23 @@ nav.hide {
     min-height: 100vh;
 }
 
-#home::before {
+.home-photo {
+    position: relative;
+}
+
+.home-photo::before {
     content: "";
     position: absolute;
-    top: 22%;
-    left: 10%;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
     width: 400px;
     height: 400px;
     background: radial-gradient(circle, var(--navTextsHover), transparent 70%);
     filter: blur(80px);
     animation: float 8s ease-in-out infinite;
-    z-index: 0;
+    z-index: -1;
 }
 
 .home-container {
@@ -816,6 +822,13 @@ nav.hide {
         height: 200px;
     }
 
+    .home-photo::before {
+        width: 250px;
+        height: 250px;
+        margin-top: -125px;
+        margin-left: -125px;
+    }
+
     .home-text {
         font-size: 22px;
         align-items: center;
@@ -880,10 +893,6 @@ nav.hide {
 
     .tech-toggle {
         width: 80%;
-    }
-
-    .conferences-container {
-        grid-template-columns: 1fr;
     }
 
     .conferences-container {
