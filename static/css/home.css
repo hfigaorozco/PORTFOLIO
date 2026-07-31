@@ -119,12 +119,16 @@ nav.hide {
 #home {
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 #home::before {
     content: "";
     position: absolute;
-    top: 15%;
+    top: 22%;
     left: 7%;
     width: 400px;
     height: 400px;
@@ -140,7 +144,6 @@ nav.hide {
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    height: 70vh;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
